@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Lyrics:</strong>
+  <%= @song.lyrics %>
+</p>
+
+<p>
+  <strong>Total word count:</strong>
+  <%= @song.word_count %>
+</p>
+
+<p>
+  <strong>Novel word ratio:</strong>
+  <%= @song.novel_word_ratio %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= link_to @song.find_artist.name, artist_path(@song.find_artist.id) %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= link_to @song.find_genre.name, genre_path(@song.find_genre.id) %>
+</p>
+
+<% @song.word_breakdown.each do |word|  %>
+  "<%= word[0] %>" - - - appears <%= word[1] %> times
+  <br />
+<% end %>
+
+<hr />
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  genre_id: 1
+  total_word_count: 1
+  novel_word_ratio: 1.5
+
+two:
+  name: MyString
+  genre_id: 1
+  total_word_count: 1
+  novel_word_ratio: 1.5

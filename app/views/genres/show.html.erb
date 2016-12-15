@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @genre.name %>
+</p>
+
+<p>
+  <strong>Total word count:</strong>
+  <%= 0 || @genre.total_word_count %>
+</p>
+
+<p>
+  <strong>Novel word ratio:</strong>
+  <%= 0.00 || @genre.novel_word_ratio %>
+</p>
+
+
+
+<% if !@artists.empty? %>
+  <%= @artists.each do |artist| %>
+    <%= link_to artist.name, artist_path(artist) %>
+  <% end %>
+<% else %>
+  <p>No artists yet associated with this genre</p>
+<% end %>
+
+<%= link_to 'Add Artist', new_artist_path(@genre) %> |
+<%= link_to 'Edit', edit_genre_path(@genre) %> |
+<%= link_to 'Back', genres_path %>

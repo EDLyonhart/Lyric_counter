@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @artist.genre_id %>
+</p>
+
+<p>
+  <strong>Total word count:</strong>
+  <%= @artist.total_word_count %>
+</p>
+
+<p>
+  <strong>Novel word ratio:</strong>
+  <%= @artist.novel_word_ratio %>
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
