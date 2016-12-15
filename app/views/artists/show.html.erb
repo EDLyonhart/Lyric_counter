@@ -7,17 +7,12 @@
 
 <p>
   <strong>Genre:</strong>
-  <%= @artist.find_genre.name %>
-</p>
-
-<p>
-  <strong>Total song count:</strong>
-  <%= @artist.find_songs_by_artist.length %>
+  <%= link_to @artist.find_genre.name, genres_path(@artist.find_genre.id)%>
 </p>
 
 <p>
   <strong>Total word count:</strong>
-  <%= @artist.get_artist_word_count %>
+  <%= @artist.get_artist_word_count %> in <%= @artist.find_songs_by_artist.length %> songs
 </p>
 
 <p>
@@ -27,14 +22,16 @@
 
 <p>
   <strong>Novel word ratio:</strong>
-  <%= @artist.artist_novel_word_ratio.to_f %>
+  <%= @artist.artist_novel_word_ratio %>
 </p>
 
 <p>
   <strong>Songs by artist:</strong><br />
   <% @artist.find_songs_by_artist.each do |song| %>
-    <%= link_to song.title, song_path(song) %><br />
+    - <%= link_to song.title, song_path(song) %><br />
   <% end %>
+  <br />
+  <%= link_to "Add song", new_song_path %>
 </p>
 
 
@@ -46,4 +43,4 @@
   <% end %>
 </p>
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<%= link_to 'Artist Index', artists_path %>

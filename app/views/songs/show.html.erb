@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Genre:</strong>
+  <%= link_to @song.find_genre.name, genre_path(@song.find_genre.id) %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= link_to @song.find_artist.name, artist_path(@song.find_artist.id) %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @song.title %>
 </p>
@@ -18,16 +28,6 @@
 <p>
   <strong>Novel word ratio:</strong>
   <%= @song.novel_word_ratio %>
-</p>
-
-<p>
-  <strong>Artist:</strong>
-  <%= link_to @song.find_artist.name, artist_path(@song.find_artist.id) %>
-</p>
-
-<p>
-  <strong>Genre:</strong>
-  <%= link_to @song.find_genre.name, genre_path(@song.find_genre.id) %>
 </p>
 
 <% @song.word_breakdown.each do |word|  %>

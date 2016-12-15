@@ -16,15 +16,18 @@
 </p>
 
 
-
-<% if !@artists.empty? %>
-  <%= @artists.each do |artist| %>
-    <%= link_to artist.name, artist_path(artist) %>
+<p>
+  <strong>Artists:</strong><br />
+  <% if !@artists.empty? %>
+    <% @artists.each do |artist| %>
+      - <%= link_to artist.name, artist_path(artist) %><br />
+    <% end %>
+  <% else %>
+    <p>No artists yet associated with this genre</p>
   <% end %>
-<% else %>
-  <p>No artists yet associated with this genre</p>
-<% end %>
+</p>
+<hr />
 
 <%= link_to 'Add Artist', new_artist_path(@genre) %> |
 <%= link_to 'Edit', edit_genre_path(@genre) %> |
-<%= link_to 'Back', genres_path %>
+<%= link_to 'Genre Index', genres_path %>
