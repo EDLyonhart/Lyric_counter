@@ -7,18 +7,43 @@
 
 <p>
   <strong>Genre:</strong>
-  <%= @artist.genre_id %>
+  <%= @artist.find_genre.name %>
+</p>
+
+<p>
+  <strong>Total song count:</strong>
+  <%= @artist.find_songs_by_artist.length %>
 </p>
 
 <p>
   <strong>Total word count:</strong>
-  <%= @artist.total_word_count %>
+  <%= @artist.get_artist_word_count %>
+</p>
+
+<p>
+  <strong>Novel word count:</strong>
+  <%= @artist.get_artist_novel_word_count %>
 </p>
 
 <p>
   <strong>Novel word ratio:</strong>
-  <%= @artist.novel_word_ratio %>
+  <%= @artist.artist_novel_word_ratio.to_f %>
 </p>
 
+<p>
+  <strong>Songs by artist:</strong><br />
+  <% @artist.find_songs_by_artist.each do |song| %>
+    <%= link_to song.title, song_path(song) %><br />
+  <% end %>
+</p>
+
+
+<p>
+  <Strong>Thirty most common words for artist:</Strong><br />
+  <% @artist.word_breakdown.each do |word|  %>
+    "<%= word[0] %>" - - - appears <%= word[1] %> times
+    <br />
+  <% end %>
+</p>
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
