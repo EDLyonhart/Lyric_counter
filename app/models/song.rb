@@ -13,10 +13,6 @@ class Song < ApplicationRecord
     return @genre[0]
   end
 
-  def full_lyrics
-    self.lyrics
-  end
-
   def words
     words = []
 
